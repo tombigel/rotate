@@ -54,20 +54,20 @@ var Rotator = new Class({
         var ie = this._getIEFilterRotationParams(this._angle);
         return 'progid:DXImageTransform.Microsoft.Matrix(M11=' + ie.M11 + ', M12=' + ie.M12 + ',M21=' + ie.M21 + ', M22=' + ie.M22 + ', sizingMethod="auto expand")'
     },
-    getCssRule:function () {
-        return 'transform: rotate(' + this._angle + 'deg)';
-
-    },
-    getCrossBrowserCssRules:function () {
-        var ie = this._getIEFilterRotationParams(this._angle);
-        return  '-webkit-transform:' + this.getCssValue() + ';' +
-            '-moz-transform:' + this.getCssValue() + ';' +
-            '-ms-transform:' + this.getCssValue() + ';' +
-            '-o-transform:' + this.getCssValue() + ';' +
-            'transform:' + this.getCssValue() + ';' +
-            'filter:' + this.getIeFilterCssValue() + ';' +
-            'zoom: 1;'
-    },
+//    getCssRule:function () {
+//        return 'transform: rotate(' + this._angle + 'deg)';
+//
+//    },
+//    getCrossBrowserCssRules:function () {
+//        var ie = this._getIEFilterRotationParams(this._angle);
+//        return  '-webkit-transform:' + this.getCssValue() + ';' +
+//            '-moz-transform:' + this.getCssValue() + ';' +
+//            '-ms-transform:' + this.getCssValue() + ';' +
+//            '-o-transform:' + this.getCssValue() + ';' +
+//            'transform:' + this.getCssValue() + ';' +
+//            'filter:' + this.getIeFilterCssValue() + ';' +
+//            'zoom: 1;'
+//    },
     _getIEFilterRotationParams:function (deg) {
         rad = this._deg2rad(deg);
         costheta = Math.cos(rad);
