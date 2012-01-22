@@ -31,13 +31,13 @@ var Rotator = new Class({
 //        source.x = source.x || 0;
 //        source.y = source.y || 0;
 
-
-        var p0 = {
+        // Assume source is always 90deg from center
+        var source = {
             x:center.x,
             y:center.y - Math.sqrt(Math.abs(target.x - center.x) * Math.abs(target.x - center.x)
                 + Math.abs(target.y - center.y) * Math.abs(target.y - center.y)
             )};
-        this._angle = this._rad2deg(2 * Math.atan2(target.y - p0.y, target.x - p0.x));
+        this._angle = this._rad2deg(2 * Math.atan2(target.y - source.y, target.x - source.x));
         return this._angle;
     },
     getAngle:function () {
