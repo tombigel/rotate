@@ -1,0 +1,43 @@
+body {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+#box {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000;
+    background: url(http://placekitten.com/g/220/220);
+    padding: 10px;
+    text-align: center;
+    box-shadow: 3px 3px 15px 0 rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    margin-left: -100px;
+    border-radius: 15px;
+}
+
+#box h5 {
+    margin-top: 60px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#handle {
+    position: absolute;
+    left: 50%;
+    margin-left: -11px;
+    top: -11px;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #666;
+    background: #fff url(http://images-3.findicons.com/files/icons/2344/faenza/16/object_rotate_left.png) no-repeat 50% 50%;
+    border-radius: 50%;
+    cursor: pointer;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotator Example</title>
+    <link rel="stylesheet" href="rotate.css">
+    <script src="modernizr-latest.js"></script>
+</head>
+<body>
+<div id="container">
+    <h2>Rotation Demo. Cross Browser</h2>
+    <button id="reset">Reset</button>
+    <div id="box">
+        <div id="handle"></div>
+        <h5>I can haz rotationz!</h5>
+    </div>
+</div>
+
+<script src="mootools-yui-compressed.js"></script>
+<script src="Rotator.js"></script>
+<script>
+    (function () {
+        var rotator = new Rotator(0);
+        var box = $('box');
+        var handle = $('handle');
+        var button = $('reset');
+
+        function mouseDownHandler(e) {
+            window.addEvent('mousemove', mouseMoveHandler);
+
+        }
+
+        function mouseMoveHandler(e) {
+            var center = {x:box.offsetLeft + box.offsetWidth / 2, y:box.offsetTop + box.offsetHeight / 2};
+            var target = e.page;
+            rotator.getCalculatedAngle(target, center);
+            setRotation(rotator.getCssValue(), rotator.getIeFilterCssValue());
+            console.log(target.x, target.y, center.x, center.y, rotator.getCssValue());
+        }
+
+        function mouseUpHandler(e) {
+            window.removeEvent('mousemove', mouseMoveHandler);
+        }
+
+        function resetClickHandler(e) {
+            rotator.setAngle(0);
+            setRotation(rotator.getCssValue(), rotator.getIeFilterCssValue());
+        }
+
+        function setRotation(cssValue, ieCssValue) {
+            if (Modernizr.csstransforms) {
+                box.setStyle('-webkit-transform', cssValue);
+                box.setStyle('-moz-transform', cssValue);
+                box.setStyle('-ms-transform', cssValue);
+                box.setStyle('-o-transform', cssValue);
+                box.setStyle('transform', cssValue);
+            } else {
+                box.setStyle('filter', ieCssValue);
+                box.setStyle('zoom', 1);
+            }
+        }
+
+        button.addEvent('click', resetClickHandler);
+        handle.addEvent('mousedown', mouseDownHandler);
+        window.addEvent('mouseup', mouseUpHandler);
+    })();
+</script>
+</body>
+</html>
